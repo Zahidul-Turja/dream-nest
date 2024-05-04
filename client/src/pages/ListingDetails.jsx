@@ -182,7 +182,21 @@ function ListingDetails() {
               <p>Start Date: {dateRange[0].startDate.toDateString()}</p>
               <p>End Date: {dateRange[0].endDate.toDateString()}</p>
 
-              <button className="button" type="submit" onClick={handleSubmit}>
+              <button
+                className="button"
+                type="submit"
+                onClick={handleSubmit}
+                disabled={customerId === listing?.creator._id}
+                style={
+                  customerId === listing?.creator._id
+                    ? {
+                        cursor: "not-allowed",
+                      }
+                    : {
+                        cursor: "pointer",
+                      }
+                }
+              >
                 BOOKING
               </button>
             </div>
