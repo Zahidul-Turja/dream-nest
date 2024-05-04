@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { DateRange } from "react-date-range";
-
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
@@ -41,7 +40,7 @@ function ListingDetails() {
 
   //   console.log(listing);
 
-  /* BOOKING CALENDAR */
+  // ! BOOKING CALENDAR
   const [dateRange, setDateRange] = useState([
     {
       startDate: new Date(),
@@ -59,7 +58,7 @@ function ListingDetails() {
   const end = new Date(dateRange[0].endDate);
   const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
 
-  /* SUBMIT BOOKING */
+  // ! SUBMIT BOOKING
   const customerId = useSelector((state) => state?.user?._id);
 
   const navigate = useNavigate();
@@ -130,9 +129,12 @@ function ListingDetails() {
             )}`}
             alt="creator avater"
           />
-          <h3>
-            Hosted by {listing.creator.firstName} {listing.creator.lastName}
-          </h3>
+          <div>
+            <h3>
+              Hosted by {listing.creator.firstName} {listing.creator.lastName}
+            </h3>
+            <p>Software Engineer (retired)</p>
+          </div>
         </div>
         <hr />
 
