@@ -124,6 +124,7 @@ router.get("/search/:search", async (req, res) => {
         $or: [
           { category: { $regex: search, $options: "i" } },
           { title: { $regex: search, $options: "i" } },
+          { city: { $regex: search, $options: "i" } },
         ],
       }).populate("creator");
     }
